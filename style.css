@@ -135,18 +135,10 @@ header {
     padding: 15px 25px;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 700;
-    font-size: 1.2rem;
-    color: var(--primary-dark);
-}
-
-.logo i {
-    font-size: 1.8rem;
-    color: var(--primary);
+.logo-img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
 }
 
 nav {
@@ -229,6 +221,7 @@ nav a:hover {
     line-height: 1.2;
     background: linear-gradient(135deg, var(--primary-dark), var(--primary));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -236,6 +229,39 @@ nav a:hover {
     font-size: 1.1rem;
     max-width: 600px;
     margin: 20px auto 0;
+}
+
+/* Presentation Section */
+.presentation-section {
+    padding: 20px 0;
+    margin-bottom: 60px;
+}
+
+.presentation-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 40px;
+    align-items: center;
+}
+
+.presentation-text h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--primary-dark);
+}
+
+.presentation-text p {
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+}
+
+.presentation-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    box-shadow: var(--neu-shadow);
 }
 
 /* Accordion Services */
@@ -310,8 +336,15 @@ nav a:hover {
 }
 
 .accordion-content p {
-    padding: 0 0 20px 38px;
+    padding: 0;
     margin: 0;
+}
+
+.acc-layout {
+    display: flex;
+    padding: 0 20px 20px 38px;
+    gap: 20px;
+    align-items: flex-start;
 }
 
 /* Calculator / Questionnaire Section */
@@ -689,6 +722,11 @@ nav a:hover {
     margin-bottom: 30px;
 }
 
+.pdf-logo {
+    height: 60px;
+    margin-bottom: 15px;
+}
+
 .pdf-clinic-info h2 {
     color: #665042;
     margin-bottom: 5px;
@@ -744,12 +782,105 @@ nav a:hover {
     font-weight: bold;
 }
 
+/* Footer */
+.main-footer {
+    margin: 40px auto 20px;
+    max-width: 1100px;
+    padding: 40px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 40px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding-bottom: 30px;
+    margin-bottom: 20px;
+}
+
+.footer-logo {
+    height: 40px;
+    margin-bottom: 15px;
+}
+
+.footer-info p {
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+.footer-links h4 {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: var(--text-light);
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--primary);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+.legal-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.legal-links a:hover {
+    color: var(--primary);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .header-content {
         flex-direction: column;
         gap: 15px;
     }
+    
+    .presentation-grid {
+        grid-template-columns: 1fr;
+        padding: 25px;
+    }
+    
+    .presentation-image img {
+        height: 250px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
     
     nav {
         flex-wrap: wrap;

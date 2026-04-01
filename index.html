@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clinique Churchill – Devis Chirurgie Mammaire à Bruxelles</title>
     <meta name="description" content="Obtenez un devis personnalisé et gratuit pour votre chirurgie mammaire à la Clinique Churchill de Bruxelles. Augmentation, lifting, lipofilling, changement ou retrait de prothèses.">
+    <!-- Content Security Policy (CSP) -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://static.wixstatic.com https://images.unsplash.com; font-src 'self' https://fonts.gstatic.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; connect-src 'self'">
+
     
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,8 +33,7 @@
     <header class="glass-panel">
         <div class="container header-content">
             <div class="logo">
-                <i class="ph-light ph-heartbeat"></i>
-                <span>Clinique Churchill</span>
+                <img src="https://static.wixstatic.com/media/68e84b_8047b63e59d446a9bf3de6e263d38957~mv2.png/v1/fill/w_426,h_126,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/clinique-churchill.png" alt="Clinique Churchill Logo" class="logo-img" crossorigin="anonymous">
             </div>
             <nav>
                 <a href="#expertise">Notre Expertise</a>
@@ -48,6 +50,21 @@
             <p>À la Clinique Churchill de Bruxelles, nous accompagnons chaque patiente avec bienveillance et professionnalisme. Obtenez une estimation transparente et personnalisée de votre intervention en quelques clics.</p>
         </section>
 
+        <!-- Nouvelle Section: Présentation -->
+        <section id="presentation" class="presentation-section fade-in">
+            <div class="presentation-grid glass-panel">
+                <div class="presentation-text">
+                    <h2>Qu'est-ce que l'augmentation mammaire ?</h2>
+                    <p>L’augmentation mammaire est une intervention chirurgicale qui vise à augmenter le volume des seins et à en améliorer la forme afin d’harmoniser la silhouette. Elle s’adresse aux femmes souffrant d’hypotrophie mammaire (seins peu développés), d’asymétrie, ou ayant perdu du volume suite à une grossesse, un allaitement ou une perte de poids.</p>
+                    <p>À la Clinique Churchill, nous ne cherchons pas seulement à "ajouter du volume", mais à rétablir un équilibre esthétique propre à chaque patiente. Que vous souhaitiez un résultat subtil et naturel ou un décolleté plus glamour, l'objectif est de renforcer votre féminité et votre confiance en vous grâce à une approche sur-mesure.</p>
+                    <p><strong>Votre chirurgien analyse votre morphologie et vous guide vers la technique idéale.</strong> Des essayages de prothèses permettent de valider le volume souhaité en toute sérénité. L’intervention est réalisée sous anesthésie générale dans notre bloc opératoire moderne et certifié ISO.</p>
+                </div>
+                <div class="presentation-image">
+                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80" alt="Consultation esthétique" loading="lazy">
+                </div>
+            </div>
+        </section>
+
         <!-- Section Accordéon (Services) – 7 items distincts -->
         <section id="services" class="services-section fade-in">
             <h2>Nos interventions mammaires</h2>
@@ -58,7 +75,10 @@
                         <i class="ph-light ph-caret-down chevron"></i>
                     </button>
                     <div class="accordion-content">
-                        <p>L'utilisation d'implants mammaires en silicone ou sérum physiologique pour augmenter le volume et améliorer la forme de la poitrine. Idéal pour les patientes souhaitant une poitrine plus généreuse sans affaissement important. L'intervention dure environ 1 à 2 heures sous anesthésie générale.</p>
+                        <div class="acc-layout">
+                            <i class="ph-light ph-plus-circle" style="font-size: 3rem; color: var(--primary); flex-shrink: 0;"></i>
+                            <p>Nous utilisons des implants mammaires en silicone de haute qualité (Motiva) pour augmenter le volume de votre poitrine tout en respectant votre morphologie. L'incision est discrète (sillon sous-mammaire, aréole ou aisselle) et le placement adapté (devant ou derrière le muscle). L'intervention dure environ 1 à 2 heures sous anesthésie générale.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="accordion-item">
@@ -67,7 +87,10 @@
                         <i class="ph-light ph-caret-down chevron"></i>
                     </button>
                     <div class="accordion-content">
-                        <p>Combinaison de la pose d'implants et d'un remodelage (mastopexie) pour remonter la poitrine. Recommandé en cas de ptôse (affaissement) significative tout en souhaitant augmenter le volume global. Cette double intervention permet d'obtenir un résultat harmonieux en une seule opération.</p>
+                        <div class="acc-layout">
+                            <i class="ph-light ph-arrow-circle-up" style="font-size: 3rem; color: var(--primary); flex-shrink: 0;"></i>
+                            <p>Combinaison de la pose d'implants et d'un remodelage (mastopexie) pour remonter la poitrine. Recommandé en cas de ptôse (affaissement) significative tout en souhaitant augmenter le volume global. Cette double intervention permet d'obtenir un résultat harmonieux en une seule opération.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="accordion-item">
@@ -76,7 +99,10 @@
                         <i class="ph-light ph-caret-down chevron"></i>
                     </button>
                     <div class="accordion-content">
-                        <p>Intervention visant à remonter une poitrine affaissée (ptôse mammaire) pour lui redonner un galbe naturel et jeune, sans utiliser de prothèses. Le volume n'est pas augmenté mais la forme est redessinée. Idéal après une grossesse ou une perte de poids importante.</p>
+                        <div class="acc-layout">
+                            <i class="ph-light ph-arrow-up" style="font-size: 3rem; color: var(--primary); flex-shrink: 0;"></i>
+                            <p>Intervention visant à remonter une poitrine affaissée (ptôse mammaire) pour lui redonner un galbe naturel et jeune, sans utiliser de prothèses. Le volume n'est pas augmenté mais la forme est redessinée. Idéal après une grossesse ou une perte de poids importante.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="accordion-item">
@@ -85,7 +111,10 @@
                         <i class="ph-light ph-caret-down chevron"></i>
                     </button>
                     <div class="accordion-content">
-                        <p>Remplacement de vos implants actuels par de nouveaux (possibilité de modifier la taille, la forme ou le type de prothèse). Recommandé après 10 à 15 ans ou en cas d'insatisfaction esthétique. L'intervention est généralement plus rapide qu'une première pose car la loge est déjà formée.</p>
+                        <div class="acc-layout">
+                            <i class="ph-light ph-arrows-clockwise" style="font-size: 3rem; color: var(--primary); flex-shrink: 0;"></i>
+                            <p>Remplacement de vos implants actuels par de nouveaux (possibilité de modifier la taille, la forme ou le type de prothèse). Recommandé après 10 à 15 ans ou en cas d'insatisfaction esthétique. L'intervention est généralement plus rapide qu'une première pose car la loge est déjà formée.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="accordion-item">
@@ -94,7 +123,10 @@
                         <i class="ph-light ph-caret-down chevron"></i>
                     </button>
                     <div class="accordion-content">
-                        <p>Remplacement de vos implants associé à un lifting mammaire (mastopexie) pour corriger l'affaissement qui peut survenir avec le temps après une première augmentation. Cette combinaison permet de renouveler vos prothèses tout en retrouvant une position haute et naturelle.</p>
+                        <div class="acc-layout">
+                            <i class="ph-light ph-arrows-counter-clockwise" style="font-size: 3rem; color: var(--primary); flex-shrink: 0;"></i>
+                            <p>Remplacement de vos implants associé à un lifting mammaire (mastopexie) pour corriger l'affaissement qui peut survenir avec le temps après une première augmentation. Cette combinaison permet de renouveler vos prothèses tout en retrouvant une position haute et naturelle.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="accordion-item">
@@ -103,7 +135,10 @@
                         <i class="ph-light ph-caret-down chevron"></i>
                     </button>
                     <div class="accordion-content">
-                        <p>Intervention pour retirer définitivement vos implants mammaires actuels. Certaines patientes choisissent cette option pour des raisons personnelles, de confort ou de santé. Le chirurgien discutera avec vous des résultats esthétiques attendus après le retrait.</p>
+                        <div class="acc-layout">
+                            <i class="ph-light ph-minus-circle" style="font-size: 3rem; color: var(--primary); flex-shrink: 0;"></i>
+                            <p>Intervention pour retirer définitivement vos implants mammaires actuels. Certaines patientes choisissent cette option pour des raisons personnelles, de confort ou de santé. Le chirurgien discutera avec vous des résultats esthétiques attendus après le retrait.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="accordion-item">
@@ -112,7 +147,10 @@
                         <i class="ph-light ph-caret-down chevron"></i>
                     </button>
                     <div class="accordion-content">
-                        <p>Augmentation modérée et 100% naturelle de la poitrine en utilisant votre propre graisse (prélevée par liposuccion sur d'autres zones du corps comme le ventre, les hanches ou les cuisses). L'alternative idéale aux implants pour un résultat doux et naturel. Un supplément de 968 € TVAC s'applique par zone de prélèvement supplémentaire.</p>
+                        <div class="acc-layout">
+                            <i class="ph-light ph-drop" style="font-size: 3rem; color: var(--primary); flex-shrink: 0;"></i>
+                            <p>Augmentation modérée et 100% naturelle de la poitrine en utilisant votre propre graisse (prélevée par liposuccion sur d'autres zones du corps). Sans incision majeure, l'intervention se fait via de micro-canules. Un supplément de 968 € TVAC s'applique par zone de prélèvement supplémentaire.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -240,8 +278,8 @@
     <div id="pdfTemplate" class="pdf-template">
         <div class="pdf-header">
             <div class="pdf-clinic-info">
-                <h2>Clinique Churchill</h2>
-                <p>Avenue Winston Churchill 165<br>1180 Uccle, Bruxelles – Belgique<br>Tél: +32 2 344 XX XX</p>
+                <img src="https://static.wixstatic.com/media/68e84b_8047b63e59d446a9bf3de6e263d38957~mv2.png/v1/fill/w_426,h_126,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/clinique-churchill.png" alt="Clinique Churchill Logo" class="pdf-logo" crossorigin="anonymous">
+                <p>Avenue Winston Churchill 81<br>1180 Uccle, Bruxelles – Belgique<br>Tél: +32 (0) 2 340 11 70</p>
             </div>
             <div class="pdf-date">
                 <p><strong>Date du devis : </strong><span id="pdfDate"></span></p>
@@ -283,6 +321,73 @@
             <p class="pdf-footer-note">Devis gratuit sans engagement – valable 30 jours.</p>
         </div>
     </div>
+
+    <!-- Section FAQ -->
+    <section id="faq" class="services-section fade-in" style="margin-top: 60px;">
+        <div class="container">
+            <h2 style="text-align: center;">Questions fréquentes</h2>
+            <div class="accordion glass-panel">
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span><i class="ph-light ph-question"></i> Qui peut bénéficier d’une augmentation mammaire ?</span>
+                        <i class="ph-light ph-caret-down chevron"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="acc-layout">
+                            <p>L’augmentation mammaire s’adresse aux femmes souhaitant augmenter le volume de leur poitrine, corriger une asymétrie mammaire ou retrouver une silhouette harmonieuse après une grossesse, une perte de poids ou les effets du temps. Lors de la consultation, notre chirurgien évalue votre état de santé et vos attentes.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span><i class="ph-light ph-baby"></i> Puis-je allaiter après une augmentation mammaire ?</span>
+                        <i class="ph-light ph-caret-down chevron"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="acc-layout">
+                            <p>Dans la plupart des cas, l’allaitement reste possible après une augmentation mammaire. La capacité d’allaiter peut toutefois varier selon la technique (type d’incision, sensibilité, etc.). Nous en discutons lors de la consultation afin d’optimiser les choix opératoires selon votre projet.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span><i class="ph-light ph-credit-card"></i> Proposez-vous des solutions de paiement échelonné ?</span>
+                        <i class="ph-light ph-caret-down chevron"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="acc-layout">
+                            <p>Oui, la Clinique Churchill propose une solution de paiement échelonné par l’intermédiaire de Santander Consumer Finance, exclusivement réservée aux patients résidant en Belgique. Notre équipe vous accompagnera dans la constitution du dossier lors de votre rendez-vous.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer glass-panel">
+        <div class="container footer-content">
+            <div class="footer-info">
+                <img src="https://static.wixstatic.com/media/68e84b_8047b63e59d446a9bf3de6e263d38957~mv2.png/v1/fill/w_426,h_126,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/clinique-churchill.png" alt="Clinique Churchill Logo" class="footer-logo" crossorigin="anonymous">
+                <p>Avenue Winston Churchill 81, 1180 Bruxelles</p>
+                <p>Tél: +32 (0) 2 340 11 70 | Email: info@cliniquechurchill.be</p>
+            </div>
+            <div class="footer-links">
+                <h4>Liens Utiles</h4>
+                <ul>
+                    <li><a href="https://www.rdv-cliniquechurchill.be/augmentation-mammaire" target="_blank">En savoir plus sur l'intervention</a></li>
+                    <li><a href="https://www.rdv-cliniquechurchill.be/faq" target="_blank">Questions Fréquentes (FAQ)</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© Clinique Churchill – Tous droits réservés – 2026</p>
+            <div class="legal-links">
+                <a href="https://www.rdv-cliniquechurchill.be/politique-de-confidentialit%C3%A9" target="_blank">Politique de Confidentialité</a> - 
+                <a href="https://www.rdv-cliniquechurchill.be/mentions-legales" target="_blank">Mentions Légales</a>
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>

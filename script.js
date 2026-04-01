@@ -386,7 +386,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- CHATBOT BUTTON ---
     document.getElementById('chatbotBtn').addEventListener('click', (e) => {
         e.preventDefault();
-        // Placeholder: redirect to chatbot integration
-        alert('Redirection vers le chatbot / agent humain.\n\nCette fonctionnalité sera intégrée prochainement.');
+        // Placeholder pour l'intégration 
+        alert('Ceci est un bouton de démonstration.\n\nPour activer le Chatbot en ligne, vous devez :\n1. Créer un compte sur Tidio ou Chatbase.\n2. Copier leur widget de code HTML.\n3. Remplacer ce faux bouton par leur code dans le fichier index.html.\n\nCette bulle fonctionnera alors avec une Vraie Intelligence Artificielle.');
     });
 });

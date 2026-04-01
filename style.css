@@ -343,8 +343,17 @@ nav a:hover {
 .acc-layout {
     display: flex;
     padding: 0 20px 20px 38px;
-    gap: 20px;
-    align-items: flex-start;
+    gap: 25px;
+    align-items: center;
+}
+
+.service-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    box-shadow: var(--neu-shadow);
+    flex-shrink: 0;
 }
 
 /* Calculator / Questionnaire Section */

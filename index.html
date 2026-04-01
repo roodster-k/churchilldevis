@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinique Churchill – Devis Chirurgie Mammaire à Bruxelles</title>
+    <meta name="description" content="Obtenez un devis personnalisé et gratuit pour votre chirurgie mammaire à la Clinique Churchill de Bruxelles. Augmentation, lifting, lipofilling, changement ou retrait de prothèses.">
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons (Light) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Librairies pour générer le PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-elements">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="glass-panel">
+        <div class="container header-content">
+            <div class="logo">
+                <i class="ph-light ph-heartbeat"></i>
+                <span>Clinique Churchill</span>
+            </div>
+            <nav>
+                <a href="#expertise">Notre Expertise</a>
+                <a href="#services">Nos Services</a>
+                <a href="#devis" class="btn btn-primary">Obtenir un devis</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Section Héro / Expertise -->
+        <section id="expertise" class="hero fade-in">
+            <h1>L'excellence en chirurgie esthétique mammaire</h1>
+            <p>À la Clinique Churchill de Bruxelles, nous accompagnons chaque patiente avec bienveillance et professionnalisme. Obtenez une estimation transparente et personnalisée de votre intervention en quelques clics.</p>
+        </section>
+
+        <!-- Section Accordéon (Services) – 7 items distincts -->
+        <section id="services" class="services-section fade-in">
+            <h2>Nos interventions mammaires</h2>
+            <div class="accordion glass-panel">
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span><i class="ph-light ph-plus-circle"></i> Augmentation mammaire simple (prothèses)</span>
+                        <i class="ph-light ph-caret-down chevron"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>L'utilisation d'implants mammaires en silicone ou sérum physiologique pour augmenter le volume et améliorer la forme de la poitrine. Idéal pour les patientes souhaitant une poitrine plus généreuse sans affaissement important. L'intervention dure environ 1 à 2 heures sous anesthésie générale.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span><i class="ph-light ph-arrow-circle-up"></i> Augmentation mammaire + Lifting</span>
+                        <i class="ph-light ph-caret-down chevron"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Combinaison de la pose d'implants et d'un remodelage (mastopexie) pour remonter la poitrine. Recommandé en cas de ptôse (affaissement) significative tout en souhaitant augmenter le volume global. Cette double intervention permet d'obtenir un résultat harmonieux en une seule opération.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span><i class="ph-light ph-arrow-up"></i> Lifting Mammaire</span>
+                        <i class="ph-light ph-caret-down chevron"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Intervention visant à remonter une poitrine affaissée (ptôse mammaire) pour lui redonner un galbe naturel et jeune, sans utiliser de prothèses. Le volume n'est pas augmenté mais la forme est redessinée. Idéal après une grossesse ou une perte de poids importante.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span><i class="ph-light ph-arrows-clockwise"></i> Changement de prothèses seules</span>
+                        <i class="ph-light ph-caret-down chevron"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Remplacement de vos implants actuels par de nouveaux (possibilité de modifier la taille, la forme ou le type de prothèse). Recommandé après 10 à 15 ans ou en cas d'insatisfaction esthétique. L'intervention est généralement plus rapide qu'une première pose car la loge est déjà formée.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span><i class="ph-light ph-arrows-counter-clockwise"></i> Changement de prothèses + Lifting</span>
+                        <i class="ph-light ph-caret-down chevron"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Remplacement de vos implants associé à un lifting mammaire (mastopexie) pour corriger l'affaissement qui peut survenir avec le temps après une première augmentation. Cette combinaison permet de renouveler vos prothèses tout en retrouvant une position haute et naturelle.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span><i class="ph-light ph-minus-circle"></i> Retrait de prothèses</span>
+                        <i class="ph-light ph-caret-down chevron"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Intervention pour retirer définitivement vos implants mammaires actuels. Certaines patientes choisissent cette option pour des raisons personnelles, de confort ou de santé. Le chirurgien discutera avec vous des résultats esthétiques attendus après le retrait.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span><i class="ph-light ph-drop"></i> Lipofilling Mammaire</span>
+                        <i class="ph-light ph-caret-down chevron"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Augmentation modérée et 100% naturelle de la poitrine en utilisant votre propre graisse (prélevée par liposuccion sur d'autres zones du corps comme le ventre, les hanches ou les cuisses). L'alternative idéale aux implants pour un résultat doux et naturel. Un supplément de 968 € TVAC s'applique par zone de prélèvement supplémentaire.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Questionnaire Dynamique -->
+        <section id="devis" class="calculator-section fade-in glass-panel">
+            <div class="calculator-header">
+                <h2>Votre Devis Personnalisé</h2>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill" style="width: 25%;"></div>
+                </div>
+            </div>
+
+            <div id="questionContainer" class="question-container">
+                <!-- Les questions seront injectées ici par JS -->
+            </div>
+
+            <!-- Résultat et Formulaire (Caché au début) -->
+            <div id="resultContainer" class="result-container hidden">
+                <div class="success-icon"><i class="ph-light ph-check-circle"></i></div>
+                <h3>Votre protocole recommandé</h3>
+                <div class="protocol-card neumorphic">
+                    <h4 id="resProtocolName">Chargement...</h4>
+                    <p id="resProtocolDesc">Description...</p>
+                </div>
+                
+                <div class="price-details glass-panel">
+                    <div class="price-row">
+                        <span>Montant HTVA</span>
+                        <span id="priceHT">0,00 €</span>
+                    </div>
+                    <div class="price-row">
+                        <span>TVA (21%)</span>
+                        <span id="priceTVA">0,00 €</span>
+                    </div>
+                    <div class="price-row total">
+                        <span>Montant Total TVAC</span>
+                        <span id="priceTTC">0,00 €</span>
+                    </div>
+                    <p class="price-note">* Prix de base estimatif. Ce devis non contractuel sera confirmé en consultation.</p>
+                </div>
+
+                <form id="userDataForm" class="user-form">
+                    <h4>Vos coordonnées pour recevoir le devis</h4>
+                    <div class="input-group">
+                        <label for="userName">Nom complet</label>
+                        <input type="text" id="userName" name="userName" required placeholder="Ex: Jeanne Dupont">
+                    </div>
+                    <div class="input-group">
+                        <label for="userEmail">Adresse e-mail</label>
+                        <input type="email" id="userEmail" name="userEmail" required placeholder="jeanne@example.com">
+                    </div>
+                    <div class="input-group">
+                        <label for="userPhone">Numéro de téléphone</label>
+                        <input type="tel" id="userPhone" name="userPhone" required placeholder="+32 4XX XX XX XX">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="btnDownloadPDF">
+                        <i class="ph-light ph-download-simple"></i> Télécharger mon devis (PDF)
+                    </button>
+                </form>
+                <button class="btn btn-outline restart-btn" id="btnRestart">
+                    <i class="ph-light ph-arrow-counter-clockwise"></i> Recommencer le questionnaire
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Chatbot Button -->
+    <a href="#" class="chatbot-btn neumorphic" id="chatbotBtn" title="Parler à un agent">
+        <i class="ph-light ph-chat-teardrop-dots"></i>
+    </a>
+
+    <!-- Modale Post-Téléchargement -->
+    <div id="postDownloadModal" class="modal-overlay hidden">
+        <div class="modal glass-panel">
+            <button class="close-modal" id="closeModalBtn"><i class="ph-light ph-x"></i></button>
+            <div class="modal-header">
+                <i class="ph-light ph-calendar-plus" style="font-size: 3rem; color: var(--primary);"></i>
+                <h2>Prochaine Étape : Consultation</h2>
+                <p>Votre devis a été téléchargé avec succès ! Souhaitez-vous planifier une consultation pour en discuter avec notre chirurgien ?</p>
+            </div>
+            
+            <div class="consultation-options">
+                <div class="consult-card neumorphic">
+                    <i class="ph-light ph-buildings"></i>
+                    <h4>En Clinique</h4>
+                    <p>Bruxelles</p>
+                    <span class="price-badge">70 €</span>
+                    <button class="btn btn-outline" onclick="alert('Redirection vers le système de réservation en PRÉSENTIEL...')">Choisir</button>
+                </div>
+                <div class="consult-card neumorphic">
+                    <i class="ph-light ph-video-camera"></i>
+                    <h4>En Visio</h4>
+                    <p>Depuis chez vous</p>
+                    <span class="price-badge">40 €</span>
+                    <button class="btn btn-outline" onclick="alert('Redirection vers le système de réservation en VISIO...')">Choisir</button>
+                </div>
+            </div>
+
+            <hr class="separator">
+
+            <div class="contact-section">
+                <h3>Une question ?</h3>
+                <form id="contactForm" class="contact-form">
+                    <!-- Champs cachés pour utiliser les infos déjà fournies -->
+                    <input type="hidden" id="contactName" name="contactName">
+                    <input type="hidden" id="contactEmail" name="contactEmail">
+                    <input type="hidden" id="contactPhone" name="contactPhone">
+                    
+                    <p class="info-note"><i class="ph-light ph-info"></i> Nous utiliserons les coordonnées de votre devis pour vous répondre.</p>
+                    
+                    <div class="input-group">
+                        <label for="contactMessage">Votre message</label>
+                        <textarea id="contactMessage" rows="4" placeholder="Bonjour, j'aimerais savoir..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-secondary">Envoyer le message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conteneur Caché pour la structure du PDF -->
+    <div id="pdfTemplate" class="pdf-template">
+        <div class="pdf-header">
+            <div class="pdf-clinic-info">
+                <h2>Clinique Churchill</h2>
+                <p>Avenue Winston Churchill 165<br>1180 Uccle, Bruxelles – Belgique<br>Tél: +32 2 344 XX XX</p>
+            </div>
+            <div class="pdf-date">
+                <p><strong>Date du devis : </strong><span id="pdfDate"></span></p>
+            </div>
+        </div>
+        
+        <div class="pdf-patient-info">
+            <h3>Coordonnées du Patient</h3>
+            <p><strong>Nom : </strong><span id="pdfName"></span></p>
+            <p><strong>Email : </strong><span id="pdfEmail"></span></p>
+            <p><strong>Téléphone : </strong><span id="pdfPhone"></span></p>
+        </div>
+
+        <div class="pdf-quote-details">
+            <h3>Détail de l'estimation</h3>
+            <div class="pdf-protocol">
+                <h4 id="pdfProtocolTitle"></h4>
+                <p id="pdfProtocolDesc"></p>
+            </div>
+            
+            <table class="pdf-table">
+                <tr>
+                    <td>Total Hors TVA (HTVA)</td>
+                    <td class="text-right"><strong id="pdfHT"></strong></td>
+                </tr>
+                <tr>
+                    <td>TVA (21%)</td>
+                    <td class="text-right"><strong id="pdfTVA"></strong></td>
+                </tr>
+                <tr class="pdf-total-row">
+                    <td>Total TVAC</td>
+                    <td class="text-right"><strong id="pdfTTC"></strong></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="pdf-mentions">
+            <p><strong>Avertissement :</strong> Ce devis est une estimation personnalisée basée sur vos réponses au questionnaire indicatif. Il ne constitue en aucun cas une offre ferme ou un diagnostic médical. Le protocole exact et le prix définitif seront confirmés lors de votre consultation médicale avec le chirurgien.</p>
+            <p class="pdf-footer-note">Devis gratuit sans engagement – valable 30 jours.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

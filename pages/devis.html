@@ -86,17 +86,7 @@
       .btn-primary { background: var(--primary); color: white; border: none; padding: 16px 32px; border-radius: 50px; font-weight: 600; font-size: 1rem; cursor: pointer; width: 100%; transition: all 0.3s ease; margin-top: 24px; display:flex; justify-content:center; align-items:center; gap:8px; }
       .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(151,117,50,0.3); }
 
-      /* Modal CSS */
-      .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); z-index: 200; display: flex; align-items: center; justify-content: center; }
-      .modal-overlay.hidden { display: none; }
-      .modal { background: var(--bg-card); border-radius: var(--radius); padding: 40px; width: 90%; max-width: 500px; text-align: center; border: 1px solid var(--border); box-shadow: var(--shadow-lg); }
-      .modal h2 { font-family: 'DM Serif Display', serif; font-size: 1.8rem; margin: 16px 0 8px; }
-      .modal p { color: var(--text-secondary); margin-bottom: 24px; }
-      .modal-btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-      .modal-card { background: var(--bg-surface); border: 1px solid var(--border); padding: 20px; border-radius: 12px; cursor: pointer; transition: all 0.2s; }
-      .modal-card:hover { border-color: var(--primary); background: var(--primary-light); }
-      .modal-card i { font-size: 2rem; color: var(--primary); margin-bottom: 12px; }
-      .modal-close { margin-top: 24px; background: none; border: none; color: var(--text-muted); text-decoration: underline; cursor: pointer; font-family: inherit; }
+
 
       .pdf-template { position: absolute; left: -9999px; width: 800px; padding: 60px; background: white; color: #333; }
       .pdf-header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #977532; padding-bottom: 20px; margin-bottom: 30px; }
@@ -166,26 +156,7 @@
     </div>
 </main>
 
-<div id="postDownloadModal" class="modal-overlay hidden">
-    <div class="modal">
-        <i class="ph-light ph-calendar-plus" style="font-size: 3.5rem; color: var(--primary);"></i>
-        <h2>Prochaine Étape</h2>
-        <p>Votre devis a été téléchargé avec succès !<br>Souhaitez-vous planifier une consultation pour en discuter avec notre chirurgien ?</p>
-        <div class="modal-btn-grid">
-            <div class="modal-card" onclick="alert('Redirection vers réservation : Présentiel')">
-                <i class="ph-light ph-buildings"></i>
-                <div style="font-weight:600; color:var(--text); margin-bottom:4px;">En Clinique</div>
-                <div style="font-size:0.8rem; color:var(--text-secondary);">70 € - Bruxelles</div>
-            </div>
-            <div class="modal-card" onclick="alert('Redirection vers réservation : Visio')">
-                <i class="ph-light ph-video-camera"></i>
-                <div style="font-weight:600; color:var(--text); margin-bottom:4px;">En Visio</div>
-                <div style="font-size:0.8rem; color:var(--text-secondary);">40 € - Depuis chez vous</div>
-            </div>
-        </div>
-        <button class="modal-close" onclick="document.getElementById('postDownloadModal').classList.add('hidden')">Non merci, fermer</button>
-    </div>
-</div>
+
 
 <div id="pdfTemplate" class="pdf-template">
     <div class="pdf-header">
@@ -428,7 +399,9 @@
             pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight);
             pdf.save(`Devis_Churchill_${name.replace(/\s+/g, '_')}.pdf`);
 
-            document.getElementById('postDownloadModal').classList.remove('hidden');
+            setTimeout(() => {
+                window.location.href = './merci-devis.html';
+            }, 1000);
         } catch (err) {
             console.error(err);
             alert("Erreur lors de la génération du PDF.");

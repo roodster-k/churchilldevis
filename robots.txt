@@ -3,3 +3,4 @@ Allow: /
 Disallow: /pages/merci.html
 
 Sitemap: https://devis.cliniquechurchill.be/sitemap.xml
+Security: https://devis.cliniquechurchill.be/.well-known/security.txt

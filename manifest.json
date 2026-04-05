@@ -1,0 +1,23 @@
+{
+  "name": "Clinique Churchill - Devis Chirurgie Mammaire",
+  "short_name": "Churchill Devis",
+  "description": "Obtenez un devis personnalisé pour votre chirurgie mammaire à Bruxelles.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#F9F7F4",
+  "theme_color": "#977532",
+  "icons": [
+    {
+      "src": "https://static.wixstatic.com/media/68e84b_c4b71655c40b40a4a3311ed126a14bde~mv2.png/v1/fill/w_192,h_200,al_c,lg_1,q_85,enc_avif,quality_auto/clinique-churchill_edited.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://static.wixstatic.com/media/68e84b_c4b71655c40b40a4a3311ed126a14bde~mv2.png/v1/fill/w_512,h_533,al_c,lg_1,q_85,enc_avif,quality_auto/clinique-churchill_edited.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

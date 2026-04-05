@@ -1,0 +1,6 @@
+Contact: mailto:contact@cliniquechurchill.be
+Expires: 2027-04-05T10:00:00.000Z
+Preferred-Languages: fr, en
+Policy: https://devis.cliniquechurchill.be/pages/politique-confidentialite.html
+Hiring: https://www.cliniquechurchill.be/recrutement
+Canonical: https://devis.cliniquechurchill.be/.well-known/security.txt

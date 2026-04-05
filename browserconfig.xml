@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+  <msapplication>
+    <tile>
+      <square70x70logo src="https://static.wixstatic.com/media/68e84b_c4b71655c40b40a4a3311ed126a14bde~mv2.png/v1/fill/w_70,h_73,al_c,lg_1,q_85,enc_avif,quality_auto/clinique-churchill_edited.png"/>
+      <square150x150logo src="https://static.wixstatic.com/media/68e84b_c4b71655c40b40a4a3311ed126a14bde~mv2.png/v1/fill/w_150,h_156,al_c,lg_1,q_85,enc_avif,quality_auto/clinique-churchill_edited.png"/>
+      <TileColor>#977532</TileColor>
+    </tile>
+  </msapplication>
+</browserconfig>

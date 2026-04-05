@@ -4,34 +4,141 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Politique de Cookies — Clinique Churchill</title>
+    <link rel="apple-touch-icon" href="https://static.wixstatic.com/media/68e84b_c4b71655c40b40a4a3311ed126a14bde~mv2.png/v1/fill/w_180,h_188,al_c,lg_1,q_85,enc_avif,quality_auto/clinique-churchill_edited.png">
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#977532">
     <link rel="icon" type="image/png" href="https://static.wixstatic.com/media/68e84b_c4b71655c40b40a4a3311ed126a14bde~mv2.png/v1/fill/w_96,h_100,al_c,lg_1,q_85,enc_avif,quality_auto/clinique-churchill_edited.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
     <style>
-      :root, [data-theme="light"] { --bg-surface: #F9F7F4; --primary: #977532; --text: #1C1F26; --border: rgba(28,31,38,0.08); --nav-bg: rgba(255,255,255,0.92); }
-      body { font-family:'DM Sans',sans-serif; background:var(--bg-surface); color:var(--text); line-height:1.6; margin:0; padding-top: 100px; }
-      .container { max-width: 800px; margin: 0 auto; padding: 40px 24px; background: white; border-radius: 20px; border: 1px solid var(--border); }
-      h1 { font-family: 'DM Serif Display', serif; }
-      h2 { color: var(--primary); font-size: 1.2rem; margin-top: 30px; }
+      :root, [data-theme="light"] {
+        --bg: #FFFFFF;
+        --bg-surface: #F9F7F4;
+        --bg-card: #FFFFFF;
+        --bg-elevated: #F4F1ED;
+        --primary: #977532;
+        --primary-light: #F7F0E4;
+        --text: #1C1F26;
+        --text-secondary: #4A4D58;
+        --border: rgba(28,31,38,0.08);
+        --nav-bg: rgba(255,255,255,0.92);
+        --radius: 20px;
+      }
+      [data-theme="dark"] {
+        --bg: #0F1117;
+        --bg-surface: #171A24;
+        --bg-card: #1C1F2B;
+        --primary: #D4B46A;
+        --text: #F0EDE8;
+        --text-secondary: #9CA0B2;
+        --border: rgba(255,255,255,0.06);
+        --nav-bg: rgba(15,17,23,0.85);
+      }
+      body {
+        font-family:'DM Sans',sans-serif; background:var(--bg-surface);
+        color:var(--text); line-height:1.7; margin:0; padding-top: 100px; transition: background .4s, color .4s;
+      }
+      h1, h2 { font-family: 'DM Serif Display', serif; font-weight: 400; }
+      .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+      .legal-content { max-width: 800px; margin: 40px auto; padding: 40px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); }
+      
       .nav { position:fixed; top:0; left:0; right:0; z-index:100; backdrop-filter:blur(20px); background:var(--nav-bg); border-bottom:1px solid var(--border); }
       .nav-inner { max-width:1100px; margin:0 auto; padding:12px 24px; display:flex; align-items:center; justify-content:space-between; }
-      .nav-logo img { height: 40px; }
+      .nav-logo img { height: 44px; width: auto; }
+      .nav-tools { display: flex; align-items: center; gap: 20px; }
+      .theme-toggle { background:none; border:none; cursor:pointer; color:var(--text); font-size:1.4rem; display:flex; transition: transform .3s; }
+      .nav-cta { background:var(--primary); color:white; padding:10px 20px; border-radius:50px; text-decoration:none; font-weight:600; font-size:0.9rem; transition: .3s; }
+      .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(151,117,50,0.3); }
+
+      .footer { background:var(--bg-card); padding:80px 0 40px; margin-top:100px; border-top:1px solid var(--border); }
+      .footer-grid { display:grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap:40px; margin-bottom:60px; }
+      .footer-col h4 { color:var(--primary); margin-bottom:24px; font-size:1.1rem; }
+      .footer-col a { display:block; color:var(--text-secondary); text-decoration:none; margin-bottom:12px; transition:.2s; }
+      .footer-col a:hover { color:var(--primary); }
+      .footer-bottom { border-top:1px solid var(--border); padding-top:40px; display:flex; justify-content:space-between; font-size:0.9rem; color:var(--text-secondary); }
+      .footer-legal { display:flex; gap:24px; }
+
+      @media (max-width: 768px) {
+        .footer-grid { grid-template-columns: 1fr; }
+        .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+        .footer-legal { flex-direction: column; gap: 10px; }
+      }
     </style>
 </head>
 <body>
+
 <nav class="nav">
   <div class="nav-inner">
-    <a href="../index.html" class="nav-logo"><img src="https://static.wixstatic.com/media/68e84b_8047b63e59d446a9bf3de6e263d38957~mv2.png/v1/fill/w_426,h_126,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/clinique-churchill.png"></a>
-    <a href="../index.html" style="color:var(--text); font-weight:600; text-decoration:none;">Retour</a>
+    <a href="../index.html" class="nav-logo">
+      <img src="https://static.wixstatic.com/media/68e84b_8047b63e59d446a9bf3de6e263d38957~mv2.png/v1/fill/w_426,h_126,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/clinique-churchill.png" alt="Clinique Churchill">
+    </a>
+    <div class="nav-tools">
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Changer de thème">
+        <i class="ph-light ph-moon" id="themeIcon"></i>
+      </button>
+      <a href="./devis.html" class="nav-cta">Obtenir mon devis</a>
+    </div>
   </div>
 </nav>
+
 <main class="container">
+  <div class="legal-content">
     <h1>Politique de Cookies</h1>
     <p>Ce site utilise des cookies techniques nécessaires à son bon fonctionnement.</p>
     <h2>1. Qu'est-ce qu'un cookie ?</h2>
     <p>Un cookie est un petit fichier texte déposé sur votre terminal.</p>
     <h2>2. Cookies utilisés</h2>
     <p>Nous utilisons uniquement des cookies de session pour mémoriser votre choix de thème.</p>
+  </div>
 </main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <img src="https://static.wixstatic.com/media/68e84b_8047b63e59d446a9bf3de6e263d38957~mv2.png/v1/fill/w_426,h_126,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/clinique-churchill.png" alt="Clinique Churchill" style="height:44px; margin-bottom:20px;">
+        <p>Chirurgie esthétique et médecine esthétique au cœur de Bruxelles. Votre beauté, notre expertise.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a href="../index.html#chirurgie">Chirurgie mammaire</a>
+        <a href="../index.html#services">Nos prestations</a>
+        <a href="../index.html#devis">Devis en ligne</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="#">Avenue Winston Churchill 81, 1180 Uccle</a>
+        <a href="tel:+3225551234">+32 2 555 12 34</a>
+        <a href="./contact.html">Contactez-nous</a>
+      </div>
+      <div class="footer-col">
+        <h4>Horaires</h4>
+        <a href="#">Lun – Ven : 8h – 19h</a>
+        <a href="#">Sam & Dim : Fermé</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Clinique Churchill. Tous droits réservés.</span>
+      <div class="footer-legal">
+        <a href="./mentions-legales.html">Mentions légales</a>
+        <a href="./politique-confidentialite.html">Confidentialité</a>
+        <a href="./politique-cookies.html">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-theme');
+  const next = current === 'light' ? 'dark' : 'light';
+  html.setAttribute('data-theme', next);
+  const icon = document.getElementById('themeIcon');
+  icon.className = next === 'dark' ? 'ph-light ph-sun' : 'ph-light ph-moon';
+}
+</script>
+
 </body>
 </html>

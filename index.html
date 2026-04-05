@@ -41,39 +41,39 @@
          ═══════════════════════════════════════════ */
       :root, [data-theme="light"] {
         --bg: #FFFFFF;
-        --bg-surface: #F7F5F2;
+        --bg-surface: #F9F7F4;
         --bg-card: #FFFFFF;
-        --bg-elevated: #F0EDE8;
-        --primary: #0C8C7C;
-        --primary-light: #E8F5F2;
-        --primary-dark: #076B5F;
-        --accent: #C5A55A;
-        --accent-light: #F5F0E2;
-        --accent-glow: rgba(197,165,90,0.15);
-        --text: #1A1F2E;
-        --text-secondary: #5A5F73;
-        --text-muted: #9498A8;
-        --border: rgba(26,31,46,0.08);
-        --border-hover: rgba(26,31,46,0.15);
-        --shadow-sm: 0 1px 3px rgba(26,31,46,0.04);
-        --shadow-md: 0 4px 20px rgba(26,31,46,0.06);
-        --shadow-lg: 0 12px 40px rgba(26,31,46,0.08);
-        --nav-bg: rgba(255,255,255,0.85);
-        --radius: 16px;
-        --radius-sm: 10px;
-        --radius-xs: 6px;
+        --bg-elevated: #F4F1ED;
+        --primary: #977532;
+        --primary-light: #F7F0E4;
+        --primary-dark: #7A5E28;
+        --accent: #B08D46;
+        --accent-light: #FAF6ED;
+        --accent-glow: rgba(151,117,50,0.15);
+        --text: #1C1F26;
+        --text-secondary: #4A4D58;
+        --text-muted: #8E91A1;
+        --border: rgba(28,31,38,0.08);
+        --border-hover: rgba(28,31,38,0.15);
+        --shadow-sm: 0 1px 3px rgba(28,31,38,0.04);
+        --shadow-md: 0 4px 20px rgba(28,31,38,0.06);
+        --shadow-lg: 0 12px 40px rgba(28,31,38,0.08);
+        --nav-bg: rgba(255,255,255,0.92);
+        --radius: 20px;
+        --radius-sm: 12px;
+        --radius-xs: 8px;
       }
       [data-theme="dark"] {
         --bg: #0F1117;
         --bg-surface: #171A24;
         --bg-card: #1C1F2B;
         --bg-elevated: #232738;
-        --primary: #2EBAA8;
-        --primary-light: rgba(46,186,168,0.1);
-        --primary-dark: #1D9E8E;
-        --accent: #D4B46A;
-        --accent-light: rgba(212,180,106,0.1);
-        --accent-glow: rgba(212,180,106,0.15);
+        --primary: #D4B46A;
+        --primary-light: rgba(212,180,106,0.1);
+        --primary-dark: #B08D46;
+        --accent: #E5C37A;
+        --accent-light: rgba(229,195,122,0.1);
+        --accent-glow: rgba(229,195,122,0.15);
         --text: #F0EDE8;
         --text-secondary: #9CA0B2;
         --text-muted: #5C6078;
@@ -120,11 +120,7 @@
         max-width:1100px; margin:0 auto; padding:14px 24px;
         display:flex; align-items:center; justify-content:space-between;
       }
-      .nav-logo {
-        font-family:'DM Serif Display',serif; font-size:1.3rem;
-        color:var(--text); text-decoration:none;
-      }
-      .nav-logo span { color:var(--primary); }
+      .nav-logo img { height: 44px; width: auto; display: block; filter: brightness(0.95); }
       .nav-links { display:flex; gap:28px; align-items:center; }
       .nav-links a {
         color:var(--text-secondary); font-size:.88rem; font-weight:500;
@@ -401,7 +397,8 @@
         display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:40px;
         margin-bottom:40px;
       }
-      .footer-brand p { font-size:.88rem; color:var(--text-secondary); margin-top:12px; line-height:1.6; max-width:260px; }
+      .footer-logo { height: 50px; width: auto; margin-bottom: 20px; }
+      .footer-brand p { font-size:.88rem; color:var(--text-secondary); margin-top:0; line-height:1.6; max-width:260px; }
       .footer-social { display:flex; gap:12px; margin-top:16px; }
       .footer-social a {
         width:38px; height:38px; border-radius:50%;
@@ -496,7 +493,9 @@
 <!-- ═══ NAV ═══ -->
 <nav class="nav">
   <div class="nav-inner">
-    <a href="/" class="nav-logo">Clinique <span>Churchill</span></a>
+    <a href="/" class="nav-logo">
+      <img src="https://static.wixstatic.com/media/68e84b_8047b63e59d446a9bf3de6e263d38957~mv2.png/v1/fill/w_426,h_126,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/clinique-churchill.png" alt="Clinique Churchill">
+    </a>
     <div class="nav-links" id="navLinks">
       <a href="#chirurgie">Chirurgie mammaire</a>
       <a href="#services">Prestations</a>
@@ -756,7 +755,9 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="/" class="nav-logo">Clinique <span>Churchill</span></a>
+        <a href="/" class="nav-logo">
+          <img src="https://static.wixstatic.com/media/68e84b_8047b63e59d446a9bf3de6e263d38957~mv2.png/v1/fill/w_426,h_126,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/clinique-churchill.png" alt="Clinique Churchill" class="footer-logo">
+        </a>
         <p>Chirurgie esthétique et médecine esthétique au cœur de Bruxelles. Votre beauté, notre expertise.</p>
         <div class="footer-social">
           <a href="https://www.facebook.com/CliniqueChurchill/" target="_blank" rel="noopener" aria-label="Facebook"><i class="ph-light ph-facebook-logo"></i></a>

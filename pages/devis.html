@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devis Personnalisé — Clinique Churchill</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+      :root, [data-theme="light"] {
+        --bg: #FFFFFF;
+        --bg-surface: #F9F7F4;
+        --bg-card: #FFFFFF;
+        --bg-elevated: #F4F1ED;
+        --primary: #977532;
+        --primary-light: #F7F0E4;
+        --primary-dark: #7A5E28;
+        --accent: #B08D46;
+        --text: #1C1F26;
+        --text-secondary: #4A4D58;
+        --text-muted: #8E91A1;
+        --border: rgba(28,31,38,0.08);
+        --shadow-md: 0 4px 20px rgba(28,31,38,0.06);
+        --radius: 20px;
+        --nav-bg: rgba(255,255,255,0.92);
+      }
+      [data-theme="dark"] {
+        --bg: #0F1117;
+        --bg-surface: #171A24;
+        --bg-card: #1C1F2B;
+        --bg-elevated: #232738;
+        --primary: #D4B46A;
+        --primary-light: rgba(212,180,106,0.1);
+        --text: #F0EDE8;
+        --text-secondary: #9CA0B2;
+        --text-muted: #5C6078;
+        --border: rgba(255,255,255,0.06);
+      }
+      body {
+        font-family:'DM Sans',sans-serif;
+        background:var(--bg-surface);
+        color:var(--text);
+        line-height:1.6;
+        margin:0;
+        padding-top: 80px;
+      }
+      .nav {
+        position:fixed; top:0; left:0; right:0; z-index:100;
+        backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+        background:var(--nav-bg); border-bottom:1px solid var(--border);
+      }
+      .nav-inner { max-width:1100px; margin:0 auto; padding:12px 24px; display:flex; align-items:center; justify-content:space-between; }
+      .nav-logo img { height: 40px; width: auto; }
+      .container { max-width: 800px; margin: 0 auto; padding: 40px 24px; }
+      .devis-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 40px;
+        box-shadow: var(--shadow-md);
+      }
+      .header-devis { text-align: center; margin-bottom: 40px; }
+      .header-devis h1 { font-family: 'DM Serif Display', serif; font-size: 2.2rem; margin-bottom: 12px; }
+      .progress-container { height: 6px; background: var(--bg-elevated); border-radius: 10px; margin-bottom: 40px; overflow: hidden; }
+      .progress-bar { height: 100%; background: var(--primary); width: 0%; transition: width 0.4s ease; }
+      
+      .question-step { display: none; }
+      .question-step.active { display: block; animation: fadeIn 0.5s ease; }
+      @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+      
+      .question-text { font-size: 1.3rem; font-weight: 600; margin-bottom: 24px; color: var(--text); }
+      .options-grid { display: grid; gap: 12px; }
+      .option-btn {
+        background: var(--bg-card);
+        border: 1.5px solid var(--border);
+        padding: 20px;
+        border-radius: 12px;
+        cursor: pointer;
+        text-align: left;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .option-btn:hover { border-color: var(--primary); background: var(--primary-light); }
+      .option-btn.selected { border-color: var(--primary); background: var(--primary-light); box-shadow: 0 0 0 4px var(--primary-light); }
+      .option-btn i { font-size: 1.4rem; color: var(--primary); }
+
+      .summary-card { background: var(--bg-elevated); border-radius: 12px; padding: 24px; margin-top: 32px; }
+      .price-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 500; }
+      .price-row.total { font-size: 1.4rem; font-weight: 700; color: var(--primary); margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); }
+      
+      .form-group { margin-bottom: 20px; }
+      .form-group label { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; }
+      .form-group input {
+        width: 100%; padding: 14px; border-radius: 10px; border: 1px solid var(--border);
+        background: var(--bg-surface); font-family: inherit; font-size: 1rem;
+      }
+      
+      .btn-primary {
+        background: var(--primary); color: white; border: none; padding: 16px 32px;
+        border-radius: 50px; font-weight: 600; font-size: 1rem; cursor: pointer;
+        width: 100%; transition: all 0.3s ease; margin-top: 24px;
+      }
+      .btn-primary:hover { transform: translateY(-2px); opacity: 0.9; }
+
+      .pdf-template { position: absolute; left: -9999px; width: 800px; padding: 60px; background: white; color: #333; }
+      .pdf-header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #977532; padding-bottom: 20px; margin-bottom: 30px; }
+      .pdf-logo { height: 60px; }
+    </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="https://static.wixstatic.com/media/68e84b_8047b63e59d446a9bf3de6e263d38957~mv2.png/v1/fill/w_426,h_126,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/clinique-churchill.png" alt="Clinique Churchill">
+    </a>
+    <a href="/" style="color:var(--text); font-weight:600; text-decoration:none; font-size:0.9rem;">Retour à l'accueil</a>
+  </div>
+</nav>
+
+<main class="container">
+    <div class="devis-card">
+        <div class="header-devis">
+            <h1>Estimation Personnalisée</h1>
+            <p>Répondez à ces quelques questions pour obtenir votre devis.</p>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <div id="quiz">
+            <!-- Step 1: Type d'intervention -->
+            <div class="question-step active" data-step="1">
+                <div class="question-text">Quelle intervention envisagez-vous ?</div>
+                <div class="options-grid">
+                    <div class="option-btn" onclick="selectOption('type', 'augmentation', 3500, 'Augmentation Mammaire (Prothèses)')">
+                        <i class="ph-light ph-plus-circle"></i>
+                        <span>Augmentation mammaire simple</span>
+                    </div>
+                    <div class="option-btn" onclick="selectOption('type', 'lift-aug', 4500, 'Augmentation + Lifting')">
+                        <i class="ph-light ph-arrow-circle-up"></i>
+                        <span>Augmentation + Lifting</span>
+                    </div>
+                    <div class="option-btn" onclick="selectOption('type', 'lifting', 3500, 'Lifting Mammaire')">
+                        <i class="ph-light ph-arrow-up"></i>
+                        <span>Lifting mammaire seul</span>
+                    </div>
+                    <div class="option-btn" onclick="selectOption('type', 'replacement', 2900, 'Changement de prothèses')">
+                        <i class="ph-light ph-arrows-clockwise"></i>
+                        <span>Changement de prothèses</span>
+                    </div>
+                    <div class="option-btn" onclick="selectOption('type', 'lipofilling', 2500, 'Lipofilling Mammaire')">
+                        <i class="ph-light ph-drop"></i>
+                        <span>Lipofilling (injection de graisse)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Détails Lipofilling (Si applicable) -->
+            <div class="question-step" data-step="2" id="lipofillingDetails">
+                <div class="question-text">Souhaitez-vous prélever de la graisse sur plusieurs zones ?</div>
+                <div class="options-grid">
+                    <div class="option-btn" onclick="selectOption('zones', '1', 0, '1 zone de prélèvement')">
+                        <span>1 zone (inclus)</span>
+                    </div>
+                    <div class="option-btn" onclick="selectOption('zones', '2', 968, '2 zones de prélèvement')">
+                        <span>2 zones (+968 € TVAC)</span>
+                    </div>
+                    <div class="option-btn" onclick="selectOption('zones', '3', 1936, '3 zones de prélèvement')">
+                        <span>3 zones (+1936 € TVAC)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Formulaire Final -->
+            <div class="question-step" data-step="3" id="finalStep">
+                <div class="question-text">Vos résultats sont prêts !</div>
+                <div class="summary-card">
+                    <div class="price-row"><span>Protocole :</span> <span id="summaryProtocol">-</span></div>
+                    <div class="price-row"><span>Options :</span> <span id="summaryOptions">-</span></div>
+                    <div class="price-row total"><span>Total Estimé (TVAC) :</span> <span id="summaryTotal">0 €</span></div>
+                </div>
+                
+                <form style="margin-top: 30px;" id="patientForm">
+                    <div class="form-group">
+                        <label>Nom Complet</label>
+                        <input type="text" id="name" required placeholder="Jeanne Dupont">
+                    </div>
+                    <div class="form-group">
+                        <label>E-mail</label>
+                        <input type="email" id="email" required placeholder="jeanne@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Téléphone</label>
+                        <input type="tel" id="phone" required placeholder="+32 4XX XX XX XX">
+                    </div>
+                    <button type="submit" class="btn-primary">Télécharger mon Devis (PDF)</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Hidden PDF Template -->
+<div id="pdfTemplate" class="pdf-template">
+    <div class="pdf-header">
+        <div>
+            <img src="https://static.wixstatic.com/media/68e84b_8047b63e59d446a9bf3de6e263d38957~mv2.png/v1/fill/w_426,h_126,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/clinique-churchill.png" class="pdf-logo">
+            <p style="margin-top:10px; font-size:12px;">Avenue Churchill 81, 1180 Bruxelles<br>Tél: +32 2 555 12 34</p>
+        </div>
+        <div style="text-align:right;">
+            <h2 style="color:#977532; margin:0;">DEVIS ESTIMATIF</h2>
+            <p id="pdfDate"></p>
+        </div>
+    </div>
+    
+    <h3>Informations Patient</h3>
+    <p><strong>Nom :</strong> <span id="pdfName"></span></p>
+    <p><strong>E-mail :</strong> <span id="pdfEmail"></span></p>
+    <p><strong>Téléphone :</strong> <span id="pdfPhone"></span></p>
+    
+    <div style="margin-top:40px; border:1px solid #eee; padding:20px; border-radius:10px;">
+        <h3 style="margin-top:0;">Détails de l'intervention</h3>
+        <p><strong>Type :</strong> <span id="pdfProtocol"></span></p>
+        <p><strong>Inclus :</strong> Bloc opératoire certifié ISO, Honoraires équipe médicale, Suivi 3 mois.</p>
+        
+        <div style="margin-top:20px; font-size:24px; color:#977532; font-weight:bold; border-top:2px solid #eee; padding-top:15px;">
+            TOTAL TVAC : <span id="pdfTotal"></span>
+        </div>
+    </div>
+    
+    <p style="margin-top:50px; font-size:10px; color:#666; line-height:1.4;">
+        * Ce document est une estimation indicative basée sur vos réponses. Il ne constitue pas un diagnostic médical ni une offre ferme. Le prix définitif sera confirmé lors de la consultation pré-opératoire.
+    </p>
+</div>
+
+<script>
+    let selections = {
+        type: null,
+        basePrice: 0,
+        extraPrice: 0,
+        protocol: '',
+        options: 'Standard'
+    };
+
+    function selectOption(key, val, price, label) {
+        if (key === 'type') {
+            selections.type = val;
+            selections.basePrice = price;
+            selections.protocol = label;
+            
+            if (val === 'lipofilling') {
+                showStep(2);
+            } else {
+                showStep(3);
+            }
+        } else if (key === 'zones') {
+            selections.extraPrice = price;
+            selections.options = label;
+            showStep(3);
+        }
+        updateSummary();
+    }
+
+    function showStep(step) {
+        document.querySelectorAll('.question-step').forEach(s => s.classList.remove('active'));
+        document.querySelector(`.question-step[data-step="${step}"]`).classList.add('active');
+        document.getElementById('progressBar').style.width = (step === 3) ? '100%' : (step === 2 ? '66%' : '33%');
+    }
+
+    function updateSummary() {
+        const total = selections.basePrice + selections.extraPrice;
+        document.getElementById('summaryProtocol').textContent = selections.protocol;
+        document.getElementById('summaryOptions').textContent = selections.options;
+        document.getElementById('summaryTotal').textContent = total.toLocaleString() + ' €';
+    }
+
+    document.getElementById('patientForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const { jsPDF } = window.jspdf;
+        
+        // Fill PDF Template
+        document.getElementById('pdfName').textContent = document.getElementById('name').value;
+        document.getElementById('pdfEmail').textContent = document.getElementById('email').value;
+        document.getElementById('pdfPhone').textContent = document.getElementById('phone').value;
+        document.getElementById('pdfProtocol').textContent = selections.protocol + ' (' + selections.options + ')';
+        document.getElementById('pdfTotal').textContent = (selections.basePrice + selections.extraPrice).toLocaleString() + ' €';
+        document.getElementById('pdfDate').textContent = new Date().toLocaleDateString('fr-FR');
+        
+        const element = document.getElementById('pdfTemplate');
+        const canvas = await html2canvas(element, { scale: 2 });
+        const imgData = canvas.toDataURL('image/png');
+        
+        const pdf = new jsPDF('p', 'mm', 'a4');
+        const imgProps = pdf.getImageProperties(imgData);
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+        
+        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        pdf.save(`Devis_Churchill_${document.getElementById('name').value.replace(' ','_')}.pdf`);
+        
+        alert('Votre devis a été généré avec succès ! Nos équipes vous contacteront prochainement.');
+    });
+</script>
+
+</body>
+</html>

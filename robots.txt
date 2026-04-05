@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /pages/merci.html
+
+Sitemap: https://devis.cliniquechurchill.be/sitemap.xml
